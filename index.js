@@ -26,7 +26,7 @@ Navigation.events().registerAppLaunchedListener(() => {
                       }
                     }
                   }
-                },
+                }
               },
           ]
       }
