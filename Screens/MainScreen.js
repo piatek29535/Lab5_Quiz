@@ -11,6 +11,8 @@ import {Platform, StyleSheet, Text, View, ScrollView, TouchableOpacity} from 're
 import {Navigation} from 'react-native-navigation'
 
 type Props = {};
+let string = "Lorem slipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+let tags = ["#Tag1","#Tag2"];
 
 export default class MainScreen extends Component<Props> {
 
@@ -18,7 +20,7 @@ export default class MainScreen extends Component<Props> {
   goTo(screenName){
     Navigation.push(this.props.componentId, {
       component:{
-        name:screenName
+        name:screenName,
       }
     })
   }
@@ -28,13 +30,44 @@ export default class MainScreen extends Component<Props> {
       <View style={styles.mainContainer}>
         <ScrollView vertical={true} style={styles.scrollContainer}>
           <View style={styles.textContainer}>
-            <TouchableOpacity onPress={() => this.goTo("ResultScreen")}>
-              <Text style={styles.text} >Przejdź do ResultScreen </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.goTo("TestScreen")}>
-              <Text style={styles.text} >Przejdź do TestScreen </Text>
+            <TouchableOpacity style={styles.testButton} onPress={() => this.goTo("TestScreen")}>
+              <Text style={styles.textHeader} >Title test #1 </Text>
+              <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
+              <Text style={styles.textDescription} >{string} </Text>
             </TouchableOpacity>
           </View>
+
+          <View style={styles.textContainer}>
+            <TouchableOpacity style={styles.testButton} onPress={() => this.goTo("TestScreen")}>
+              <Text style={styles.textHeader} >Title test #2 </Text>
+              <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
+              <Text style={styles.textDescription} >{string} </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.textContainer}>
+            <TouchableOpacity style={styles.testButton} onPress={() => this.goTo("TestScreen")}>
+              <Text style={styles.textHeader} >Title test #3 </Text>
+              <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
+              <Text style={styles.textDescription} >{string} </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.textContainer}>
+            <TouchableOpacity style={styles.testButton} onPress={() => this.goTo("TestScreen")}>
+              <Text style={styles.textHeader} >Title test #4 </Text>
+              <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
+              <Text style={styles.textDescription} >{string} </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.resultContainer}>
+            <Text style={styles.textHeader} >Get to know your ranking results</Text>
+            <TouchableOpacity style={styles.resultButton} onPress={() => this.goTo("ResultScreen")}>
+              <Text style={styles.textDescription} >Check!</Text>
+            </TouchableOpacity>
+          </View>
+
         </ScrollView>
       </View>
     );
@@ -46,20 +79,55 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: '#F5FCFF',
   },
+
+  //Test Views Container
   scrollContainer:{
-    backgroundColor:'#AF0093',
+    backgroundColor:'#E5E5E5',
   },
   textContainer:{
-    margin:10,
-    padding:10,
-    backgroundColor:'#FF0500',
+    margin:15,
+    backgroundColor:'#CCCCCC',
+    borderStyle: 'solid',
+    borderWidth: 2,
     justifyContent:'center',
     alignItems:'center'
   },
-  text:{
+  testButton:{
+    alignSelf:'stretch',
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: 'white',
+    borderColor:'#7F7F7F',
+  },
+  textHeader:{
     padding:10,
     fontSize:20,
-  }
+    fontWeight:'bold',
+  },
+  textTags:{
+    padding:10,
+    fontSize:20,
+    color:'blue',
+  },
+  textDescription:{
+    padding:10,
+    fontSize:15,
+  },
+
+  //Result Container
+  resultContainer:{
+    padding:10,
+    marginTop:10,
+    backgroundColor:'#999999',
+    borderStyle: 'solid',
+    borderWidth: 2,
+    alignItems:'center'
+  },
+
+  resultButton:{
+    borderStyle: 'solid',
+    borderWidth: 3,
+    borderRadius: 10,
+  },
 });

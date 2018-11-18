@@ -17,8 +17,16 @@ Navigation.events().registerAppLaunchedListener(() => {
           children: [
               {
                 component:{
-                  name: 'MainScreen'
-                }
+                  name: 'MainScreen',
+                  options:{
+                    topBar:{
+                      title:{
+                        text:'Home Page',
+                        alignment: 'center'
+                      }
+                    }
+                  }
+                },
               },
           ]
       }
