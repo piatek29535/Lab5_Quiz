@@ -16,7 +16,6 @@ let tags = ["#Tag1","#Tag2"];
 
 export default class MainScreen extends Component<Props> {
 
-
   goTo(screenName){
     Navigation.push(this.props.componentId, {
       component:{
