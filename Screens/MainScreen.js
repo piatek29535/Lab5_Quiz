@@ -16,7 +16,7 @@ let tags = ["#Tag1","#Tag2"];
 
 export default class MainScreen extends Component<Props> {
 
-  goTo(screenName){
+  goToScreen(screenName){
     Navigation.push(this.props.componentId, {
       component:{
         name:screenName,
@@ -28,8 +28,13 @@ export default class MainScreen extends Component<Props> {
     return (
       <View style={styles.mainContainer}>
         <ScrollView vertical={true} style={styles.scrollContainer}>
+
+          <View style={styles.headerContainer}>
+            <Text style={styles.textHeader} >Main Menu</Text>
+          </View>
+
           <View style={styles.textContainer}>
-            <TouchableOpacity style={styles.testButton} onPress={() => this.goTo("TestScreen")}>
+            <TouchableOpacity style={styles.testButton} onPress={() => this.goToScreen("TestScreen")}>
               <Text style={styles.textHeader} >Title test #1 </Text>
               <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
               <Text style={styles.textDescription} >{string} </Text>
@@ -37,7 +42,7 @@ export default class MainScreen extends Component<Props> {
           </View>
 
           <View style={styles.textContainer}>
-            <TouchableOpacity style={styles.testButton} onPress={() => this.goTo("TestScreen")}>
+            <TouchableOpacity style={styles.testButton} onPress={() => this.goToScreen("TestScreen")}>
               <Text style={styles.textHeader} >Title test #2 </Text>
               <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
               <Text style={styles.textDescription} >{string} </Text>
@@ -45,7 +50,7 @@ export default class MainScreen extends Component<Props> {
           </View>
 
           <View style={styles.textContainer}>
-            <TouchableOpacity style={styles.testButton} onPress={() => this.goTo("TestScreen")}>
+            <TouchableOpacity style={styles.testButton} onPress={() => this.goToScreen("TestScreen")}>
               <Text style={styles.textHeader} >Title test #3 </Text>
               <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
               <Text style={styles.textDescription} >{string} </Text>
@@ -53,7 +58,7 @@ export default class MainScreen extends Component<Props> {
           </View>
 
           <View style={styles.textContainer}>
-            <TouchableOpacity style={styles.testButton} onPress={() => this.goTo("TestScreen")}>
+            <TouchableOpacity style={styles.testButton} onPress={() => this.goToScreen("TestScreen")}>
               <Text style={styles.textHeader} >Title test #4 </Text>
               <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
               <Text style={styles.textDescription} >{string} </Text>
@@ -62,7 +67,7 @@ export default class MainScreen extends Component<Props> {
 
           <View style={styles.resultContainer}>
             <Text style={styles.textHeader} >Get to know your ranking results</Text>
-            <TouchableOpacity style={styles.resultButton} onPress={() => this.goTo("ResultScreen")}>
+            <TouchableOpacity style={styles.resultButton} onPress={() => this.goToScreen("ResultScreen")}>
               <Text style={styles.textDescription} >Check!</Text>
             </TouchableOpacity>
           </View>
@@ -78,6 +83,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
+  },
+
+  //Header Container
+  headerContainer:{
+    padding:10,
+    backgroundColor:'#999999',
+    borderStyle: 'solid',
+    borderBottomWidth:2,
+    alignItems:'center'
   },
 
   //Test Views Container
@@ -96,7 +110,6 @@ const styles = StyleSheet.create({
     alignSelf:'stretch',
     borderStyle: 'solid',
     borderWidth: 2,
-    borderColor: 'white',
     borderColor:'#7F7F7F',
   },
   textHeader:{

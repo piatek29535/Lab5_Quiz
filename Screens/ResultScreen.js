@@ -12,6 +12,7 @@ import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 type Props = {};
 let upActiveFields = ['Nick','Point','Type','Date'];
 let ranking = [['1','2','3','3'] , ['4','5','6','3'] , ['7','8','9','3'] , ['10','11','12','3']]
+
 export default class ResultScreen extends Component<Props> {
 
   upActiveFieldsRender(){
@@ -42,6 +43,11 @@ export default class ResultScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.mainContainer}>
+
+        <View style={styles.headerContainer}>
+          <Text style={styles.textHeader} >Results</Text>
+        </View>
+
         {this.upActiveFieldsRender()}
 
         {this.rankingFieldsRender()}
@@ -58,6 +64,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#E5E5E5',
   },
 
+// Header Container
+
+  headerContainer:{
+    padding:10,
+    marginBottom:15,
+    backgroundColor:'#CCCCCC',
+    borderRadius:5,
+    borderStyle: 'solid',
+    borderWidth: 2,
+    alignItems:'center'
+  },
+  textHeader:{
+    padding:10,
+    fontSize:30,
+    fontWeight:'bold',
+  },
 
 // Active Fields
   activeFields:{

@@ -37,6 +37,7 @@ export default class TestScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.mainContainer}>
+
         <View style={styles.testView}>
 
           <View style={styles.questionView}>
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
   },
 
   testView:{
-    backgroundColor:'grey',
+    backgroundColor:'#808080',
     borderStyle: 'solid',
     borderWidth: 2,
     width:350,
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
   },
   // ---------------------------------------------- Question View --------------------------------
   questionView:{
-    backgroundColor:'white',
+    backgroundColor:'#FFFFFF',
     flex:1,
     alignItems:'stretch',
   },
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   anwerButton:{
-    backgroundColor:'white',
+    backgroundColor:'#FFFFFF',
     borderStyle: 'solid',
     borderWidth: 2,
     borderRadius: 5,
