@@ -33,9 +33,6 @@ export default class ResultScreen extends Component<Props> {
         <TouchableOpacity style={styles.button} onPress={() => this.goToScreen("MainScreen")}>
           <Text style={styles.buttonText}> Home Screen</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => this.goToScreen("TestScreen")}>
-          <Text style={styles.buttonText}> Test Screen </Text>
-        </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => this.goToScreen("ResultScreen")}>
           <Text style={styles.buttonText}> Result Screen </Text>
         </TouchableOpacity>

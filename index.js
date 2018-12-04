@@ -40,7 +40,7 @@ Navigation.events().registerAppLaunchedListener(() => {
           },
           center:{
             stack:{
-              id: 'ScreenStack',
+              id: 'ScreenStack', 
               children:[
                 {
                   component:{

@@ -1,0 +1,84 @@
+{
+  "questions":[
+      {
+        "question":"Jednostka centralna to",
+        "answer1":"Komputer",
+        "answer2":"Karta graficzna",
+        "answer3":"Procesor",
+        "answer4":"Karta dźwiękowa",
+        "correctAnswer":"answer3"
+      },
+      {
+        "question":"Klawiatura to urządzenie",
+        "answer1":"Wejścia",
+        "answer2":"Wyjścia",
+        "answer3":"Wejścia i wyjścia",
+        "answer4":"Żadne z powyższych",
+        "correctAnswer":"answer1"
+      },
+      {
+        "question":"Darmowy program graficzny dystrybucji Linux to",
+        "answer1":"Paint",
+        "answer2":"Gimp",
+        "answer3":"Corel Draw",
+        "answer4":"Wine",
+        "correctAnswer":"answer2"
+      },
+      {
+        "question":"Do tworzenia baz danych używamy",
+        "answer1":"Word",
+        "answer2":"Access",
+        "answer3":"Excel",
+        "answer4":"PowerPoint",
+        "correctAnswer":"answer2"
+      },
+      {
+        "question":"Wydajność w grach zależy głównie od",
+        "answer1":"Karty graficznej",
+        "answer2":"Karty dźwiękowej",
+        "answer3":"Karty sieciowej",
+        "answer4":"Złącza ATX",
+        "correctAnswer":"answer1"
+      },
+      {
+        "question":"Do ochrony komputera przed wirusami używamy",
+        "answer1":"Antywirusa",
+        "answer2":"Programu jakiegoś hindusa",
+        "answer3":"Maszynki do mięsa",
+        "answer4":"Mózgu",
+        "correctAnswer":"answer4"
+      },
+      {
+        "question":"Darmowe oprogramowanie to",
+        "answer1":"Freeware",
+        "answer2":"Piesware",
+        "answer3":"Shareware",
+        "answer4":"Trial",
+        "correctAnswer":"answer1"
+      },
+      {
+        "question":"Co ile powinniśmy robić sobie przerwe podczas korzystania z komputera",
+        "answer1":"Lepiej w ogóle nie grać, będzie spokój",
+        "answer2":"30 minut",
+        "answer3":"1 godzina",
+        "answer4":"2 godizny",
+        "correctAnswer":"answer3"
+      },
+      {
+        "question":"Jezykiem programowania jest",
+        "answer1":"Język polski",
+        "answer2":"Java",
+        "answer3":"J100X",
+        "answer4":"HMTL",
+        "correctAnswer":"answer2"
+      },
+      {
+        "question":"Za funkcjonalność strony internetowej odpowiada język",
+        "answer1":"HTML",
+        "answer2":"CSS",
+        "answer3":"PHP",
+        "answer4":"Żadne z powyższych",
+        "correctAnswer":"answer3"
+      },
+  ]
+}

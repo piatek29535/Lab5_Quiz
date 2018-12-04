@@ -8,31 +8,73 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import json from '../JSON_Quizzes/Quiz1.json'
+import {Navigation} from 'react-native-navigation'
 
 type Props = {};
 const tempQuest = "Lorem slipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+const questions = json.questions;
 
 export default class TestScreen extends Component<Props> {
 
   constructor(){
     super()
     this.state = {
-      timer: 10,
+      timer:10,
+      points: 0,
+      iterator: 0,
     }
 
-    setInterval(() => {
+    interval = setInterval(() => {
       if(this.state.timer > 0){
         this.setState({
             timer: this.state.timer - 1
         })
+      }else if(this.state.iterator > 8){
+            clearInterval(interval)
+
+            Navigation.push(this.props.componentId, {
+              component:{
+                name:"ResultScreen",
+              }
+            })
       }else{
         this.setState({
-            timer: 0,
+            timer: 10,
+            iterator: this.state.iterator + 1
         })
       }
     },1000)
   }
 
+  buttonPressHandler(answer){
+    switch(answer){
+      case 'answer1':
+      case 'answer2':
+      case 'answer3':
+      case 'answer4':
+
+        if(this.state.iterator < 9){
+          if(answer === questions[this.state.iterator].correctAnswer){
+            this.setState({
+                points: this.state.points + 1,
+                timer: 10,
+                iterator: this.state.iterator + 1,
+            })
+            console.log(this.state.points + "   " + questions[this.state.iterator].correctAnswer)
+
+          }else{
+            this.setState({
+                timer: 10,
+                iterator: this.state.iterator + 1,
+            })
+            console.log(this.state.points + "    " + questions[this.state.iterator].correctAnswer)
+          }
+      }
+
+      break
+    }
+  }
 
   render() {
     return (
@@ -41,23 +83,23 @@ export default class TestScreen extends Component<Props> {
         <View style={styles.testView}>
 
           <View style={styles.questionView}>
-            <Text style={styles.timer}> Timer: {this.state.timer} sec</Text>
-            <Text style={styles.questionNumber}> Question 1 </Text>
-            <Text style={styles.question}> {tempQuest} </Text>
+            <Text style={styles.timer}> Czas: {this.state.timer} sec</Text>
+            <Text style={styles.questionNumber}> Pytanie {this.state.iterator+1}</Text>
+            <Text style={styles.question}> {questions[this.state.iterator].question} </Text>
           </View>
 
           <View style={styles.bottomTestView}>
-            <TouchableOpacity style={styles.anwerButton}>
-              <Text style={styles.buttonText}> Tekst 1 </Text>
+            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler("answer1")}>
+              <Text style={styles.buttonText}> {questions[this.state.iterator].answer1} </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwerButton}>
-              <Text style={styles.buttonText}> Tekst 2 </Text>
+            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler("answer2")}>
+              <Text style={styles.buttonText}> {questions[this.state.iterator].answer2} </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwerButton}>
-              <Text style={styles.buttonText}> Tekst 3 </Text>
+            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler("answer3")}>
+              <Text style={styles.buttonText}> {questions[this.state.iterator].answer3} </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwerButton}>
-              <Text style={styles.buttonText}> Tekst 4 </Text>
+            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler("answer4")}>
+              <Text style={styles.buttonText}> {questions[this.state.iterator].answer4} </Text>
             </TouchableOpacity>
           </View>
 
@@ -99,9 +141,8 @@ const styles = StyleSheet.create({
     textAlign:'center',
   },
   question:{
-    alignSelf:'flex-end',
     textAlign:'center',
-    fontSize:15,
+    fontSize:25,
     margin:2,
   },
 
@@ -128,6 +169,7 @@ const styles = StyleSheet.create({
   },
   buttonText:{
     fontSize:20,
-    fontWeight:'bold'
+    fontWeight:'bold',
+    textAlign:'center'
   },
 });
