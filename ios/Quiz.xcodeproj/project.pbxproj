@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -38,6 +37,17 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		738231AF6CB64AAEAEBE7621 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1F36EB67A545B58F660963 /* libReactNativeNavigation.a */; };
+		852E45845C704304BD7A41E0 /* ReactNativeNavigationTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 6B5FECCE049F403A9C42DFFE /* ReactNativeNavigationTests.xctest */; };
+		45921D2C30874073A065A1C9 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F38393A6DEBD49BBAD34A73B /* GamjaFlower-Regular.ttf */; };
+		AD1C46E070974D41936807F3 /* IndieFlower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CBF284A19134DDAB7B83F36 /* IndieFlower.ttf */; };
+		0AADBAB0AF134AB1BEE705D3 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85623D93FF7F4CD98BB999E5 /* GamjaFlower-Regular.ttf */; };
+		B1DDA59594AD44D3A1606339 /* IndieFlower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C208795B2C741E9995EABDE /* IndieFlower.ttf */; };
+		AE182619BFAB49AC8C16540A /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 635692E97FFB421AA7D1471D /* GamjaFlower-Regular.ttf */; };
+		11D627890B8548A28A227F5D /* IndieFlower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E689464E881941AA9DE9521A /* IndieFlower.ttf */; };
+		25F449078BF24526BA982A13 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C2ADEFEEC98462A95254C0C /* Pacifico-Regular.ttf */; };
+		D34EC316145D420E802E801D /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 749D8448ED614B6C89E6D7F1 /* Oswald-Bold.ttf */; };
+		D2DB655BC6B14DB2864C5BE6 /* RobotoSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAEB7E81A4DC42219B21B1AA /* RobotoSlab-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +353,18 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		C58461ACB7094378A3D55BDF /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeNavigation.xcodeproj"; path = "../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		1E1F36EB67A545B58F660963 /* libReactNativeNavigation.a */ = {isa = PBXFileReference; name = "libReactNativeNavigation.a"; path = "libReactNativeNavigation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		6B5FECCE049F403A9C42DFFE /* ReactNativeNavigationTests.xctest */ = {isa = PBXFileReference; name = "ReactNativeNavigationTests.xctest"; path = "ReactNativeNavigationTests.xctest"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.cfbundle; explicitFileType = undefined; includeInIndex = 0; };
+		F38393A6DEBD49BBAD34A73B /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; name = "GamjaFlower-Regular.ttf"; path = "../assets/fonts/GamjaFlower-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1CBF284A19134DDAB7B83F36 /* IndieFlower.ttf */ = {isa = PBXFileReference; name = "IndieFlower.ttf"; path = "../assets/fonts/IndieFlower.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		85623D93FF7F4CD98BB999E5 /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; name = "GamjaFlower-Regular.ttf"; path = "../Assets/fonts/GamjaFlower-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8C208795B2C741E9995EABDE /* IndieFlower.ttf */ = {isa = PBXFileReference; name = "IndieFlower.ttf"; path = "../Assets/fonts/IndieFlower.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		635692E97FFB421AA7D1471D /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; name = "GamjaFlower-Regular.ttf"; path = "../Assets/Fonts/GamjaFlower-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E689464E881941AA9DE9521A /* IndieFlower.ttf */ = {isa = PBXFileReference; name = "IndieFlower.ttf"; path = "../Assets/Fonts/IndieFlower.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3C2ADEFEEC98462A95254C0C /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; name = "Pacifico-Regular.ttf"; path = "../Assets/Fonts/Pacifico-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		749D8448ED614B6C89E6D7F1 /* Oswald-Bold.ttf */ = {isa = PBXFileReference; name = "Oswald-Bold.ttf"; path = "../Assets/Fonts/Oswald-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FAEB7E81A4DC42219B21B1AA /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; name = "RobotoSlab-Bold.ttf"; path = "../Assets/Fonts/RobotoSlab-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +392,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				738231AF6CB64AAEAEBE7621 /* libReactNativeNavigation.a in Frameworks */,
+				852E45845C704304BD7A41E0 /* ReactNativeNavigationTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +580,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				C58461ACB7094378A3D55BDF /* ReactNativeNavigation.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -577,6 +602,7 @@
 				00E356EF1AD99517003FC87E /* QuizTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				7C83B19226CB4BFDB894DA85 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -602,6 +628,23 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		7C83B19226CB4BFDB894DA85 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				F38393A6DEBD49BBAD34A73B /* GamjaFlower-Regular.ttf */,
+				1CBF284A19134DDAB7B83F36 /* IndieFlower.ttf */,
+				85623D93FF7F4CD98BB999E5 /* GamjaFlower-Regular.ttf */,
+				8C208795B2C741E9995EABDE /* IndieFlower.ttf */,
+				635692E97FFB421AA7D1471D /* GamjaFlower-Regular.ttf */,
+				E689464E881941AA9DE9521A /* IndieFlower.ttf */,
+				3C2ADEFEEC98462A95254C0C /* Pacifico-Regular.ttf */,
+				749D8448ED614B6C89E6D7F1 /* Oswald-Bold.ttf */,
+				FAEB7E81A4DC42219B21B1AA /* RobotoSlab-Bold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -684,7 +727,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -1049,6 +1092,15 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				45921D2C30874073A065A1C9 /* GamjaFlower-Regular.ttf in Resources */,
+				AD1C46E070974D41936807F3 /* IndieFlower.ttf in Resources */,
+				0AADBAB0AF134AB1BEE705D3 /* GamjaFlower-Regular.ttf in Resources */,
+				B1DDA59594AD44D3A1606339 /* IndieFlower.ttf in Resources */,
+				AE182619BFAB49AC8C16540A /* GamjaFlower-Regular.ttf in Resources */,
+				11D627890B8548A28A227F5D /* IndieFlower.ttf in Resources */,
+				25F449078BF24526BA982A13 /* Pacifico-Regular.ttf in Resources */,
+				D34EC316145D420E802E801D /* Oswald-Bold.ttf in Resources */,
+				D2DB655BC6B14DB2864C5BE6 /* RobotoSlab-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,6 +1233,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quiz.app/Quiz";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1199,6 +1260,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quiz.app/Quiz";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1218,6 +1288,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Quiz;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1236,6 +1310,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Quiz;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1262,6 +1340,15 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1288,6 +1375,15 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1313,6 +1409,15 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quiz-tvOS.app/Quiz-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1338,6 +1443,15 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quiz-tvOS.app/Quiz-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
+				);
 			};
 			name = Release;
 		};

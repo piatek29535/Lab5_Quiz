@@ -66,7 +66,7 @@ export default class MainScreen extends Component<Props> {
           </View>
 
           <View style={styles.resultContainer}>
-            <Text style={styles.textHeader} >Get to know your ranking results</Text>
+            <Text style={styles.textHeader} >Zobacz ranking!</Text>
             <TouchableOpacity style={styles.resultButton} onPress={() => this.goToScreen("ResultScreen")}>
               <Text style={styles.textDescription} >Check!</Text>
             </TouchableOpacity>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   //Header Container
   headerContainer:{
     padding:10,
-    backgroundColor:'#999999',
+    backgroundColor:'#006080',
     borderStyle: 'solid',
     borderBottomWidth:2,
     alignItems:'center'
@@ -96,11 +96,11 @@ const styles = StyleSheet.create({
 
   //Test Views Container
   scrollContainer:{
-    backgroundColor:'#E5E5E5',
+    backgroundColor:'#00bfff',
   },
   textContainer:{
     margin:15,
-    backgroundColor:'#CCCCCC',
+    backgroundColor:'#FFFFFF',
     borderStyle: 'solid',
     borderWidth: 2,
     justifyContent:'center',
@@ -114,32 +114,37 @@ const styles = StyleSheet.create({
   },
   textHeader:{
     padding:10,
-    fontSize:20,
-    fontWeight:'bold',
+    fontSize:25,
+    fontFamily: "Pacifico-Regular"
   },
   textTags:{
     padding:10,
     fontSize:20,
     color:'blue',
+    fontFamily: "Pacifico-Regular"
   },
   textDescription:{
     padding:10,
-    fontSize:15,
+    fontSize:20,
+    fontFamily: "GamjaFlower-Regular"
   },
 
   //Result Container
   resultContainer:{
-    padding:10,
-    marginTop:10,
-    backgroundColor:'#999999',
+    padding:2,
+    backgroundColor:'#006080',
     borderStyle: 'solid',
     borderWidth: 2,
     alignItems:'center'
   },
 
   resultButton:{
+    margin:5,
+    width:300,
+    alignItems:'center',
     borderStyle: 'solid',
     borderWidth: 3,
     borderRadius: 10,
+    borderColor:'#FFFFFF'
   },
 });

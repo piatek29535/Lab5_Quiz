@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {Platform, StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import {Navigation} from 'react-native-navigation'
 
 type Props = {};
@@ -27,14 +27,18 @@ export default class ResultScreen extends Component<Props> {
       <View style={styles.mainContainer}>
 
         <View style={styles.headerContainer}>
-          <Text style={styles.textHeader} >Drawer</Text>
+          <Image
+            style={styles.image}
+            source={require('../Assets/Images/drawerPic.jpg')}
+          />
+          <Text style={styles.textHeader} >Szybki dostęp</Text>
         </View>
 
         <TouchableOpacity style={styles.button} onPress={() => this.goToScreen("MainScreen")}>
-          <Text style={styles.buttonText}> Home Screen</Text>
+          <Text style={styles.buttonText}>Okno główne</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => this.goToScreen("ResultScreen")}>
-          <Text style={styles.buttonText}> Result Screen </Text>
+          <Text style={styles.buttonText}> Wyniki </Text>
         </TouchableOpacity>
       </View>
     );
@@ -46,18 +50,28 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems:'center',
-    backgroundColor: '#7A7A7A',
+    backgroundColor: '#0099cc',
   },
 
   headerContainer:{
     marginBottom:20,
     alignItems:'center',
+    borderBottomColor: '#FFFFFF',
+    borderBottomWidth: 1,
+  },
+  image:{
+    borderWidth:2,
+    borderColor:'#FFFFFF',
+    margin:20,
+    width: 300,
+    height: 200,
   },
   textHeader:{
     padding:10,
     fontSize:30,
     fontWeight:'bold',
-    color:'#000000'
+    fontStyle:'italic',
+    color:'#FFFFFF'
   },
 
   button: {
@@ -73,7 +87,7 @@ const styles = StyleSheet.create({
 
   buttonText:{
     fontSize:20,
-    fontWeight:'bold'
+    fontFamily: "Pacifico-Regular"
   }
 
 })

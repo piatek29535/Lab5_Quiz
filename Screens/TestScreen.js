@@ -26,24 +26,30 @@ export default class TestScreen extends Component<Props> {
     }
 
     interval = setInterval(() => {
-      if(this.state.timer > 0){
-        this.setState({
-            timer: this.state.timer - 1
-        })
-      }else if(this.state.iterator > 8){
-            clearInterval(interval)
-
-            Navigation.push(this.props.componentId, {
-              component:{
-                name:"ResultScreen",
-              }
-            })
+      if(this.state.iterator < 9){
+        if(this.state.timer > 0){
+          this.setState({
+              timer: this.state.timer - 1
+          })
+        }else{
+          this.setState({
+              timer: 10,
+              iterator: this.state.iterator + 1
+          })
+        }
       }else{
         this.setState({
-            timer: 10,
-            iterator: this.state.iterator + 1
+            timer: 0,
         })
+        Navigation.push(this.props.componentId, {
+          component:{
+            name:'ResultScreen',
+          }
+        })
+
+        clearInterval(interval)
       }
+
     },1000)
   }
 
@@ -55,6 +61,7 @@ export default class TestScreen extends Component<Props> {
       case 'answer4':
 
         if(this.state.iterator < 9){
+
           if(answer === questions[this.state.iterator].correctAnswer){
             this.setState({
                 points: this.state.points + 1,
@@ -70,8 +77,7 @@ export default class TestScreen extends Component<Props> {
             })
             console.log(this.state.points + "    " + questions[this.state.iterator].correctAnswer)
           }
-      }
-
+        }
       break
     }
   }
@@ -114,11 +120,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#00bfff',
   },
 
   testView:{
-    backgroundColor:'#808080',
+    backgroundColor:'#006080',
     borderStyle: 'solid',
     borderWidth: 2,
     width:350,
@@ -135,15 +141,17 @@ const styles = StyleSheet.create({
     margin:4,
   },
   questionNumber:{
-    fontWeight:'bold',
     padding:20,
     fontSize:20,
     textAlign:'center',
+    fontFamily:'RobotoSlab-Bold'
   },
   question:{
     textAlign:'center',
     fontSize:25,
     margin:2,
+    fontFamily:'RobotoSlab-Bold'
+
   },
 
 
@@ -169,7 +177,7 @@ const styles = StyleSheet.create({
   },
   buttonText:{
     fontSize:20,
-    fontWeight:'bold',
-    textAlign:'center'
+    textAlign:'center',
+    fontFamily:'Oswald-Bold'
   },
 });
