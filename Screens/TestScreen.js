@@ -12,21 +12,22 @@ import json from '../JSON_Quizzes/Quiz1.json'
 import {Navigation} from 'react-native-navigation'
 
 type Props = {};
-const tempQuest = "Lorem slipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-const questions = json.questions;
+//const tempQuest = "Lorem slipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+const questions = json.questions
 
 export default class TestScreen extends Component<Props> {
 
   constructor(){
     super()
     this.state = {
+      score: 0,
       timer:10,
-      points: 0,
       iterator: 0,
+      jsonFromServer:" ",
     }
-
+// Obsługa timera
+  if(this.state.iterator < 9){
     interval = setInterval(() => {
-      if(this.state.iterator < 9){
         if(this.state.timer > 0){
           this.setState({
               timer: this.state.timer - 1
@@ -37,52 +38,65 @@ export default class TestScreen extends Component<Props> {
               iterator: this.state.iterator + 1
           })
         }
-      }else{
-        this.setState({
-            timer: 0,
-        })
+      },1000)
+   }else{
+        clearInterval(interval)
+
         Navigation.push(this.props.componentId, {
           component:{
-            name:'ResultScreen',
+            name:"ResultScreen",
           }
         })
+    }
 
-        clearInterval(interval)
-      }
-
-    },1000)
   }
 
+// Pobranie Quizu
+  componentDidMount(){
+    fetch('https://pwsz-quiz-api.herokuapp.com/api/test/5c05d64f2404232b3bc09a84')
+      .then((response) => response.json())
+      .then((responseJson) => {
+          this.setState({
+              jsonFromServer: responseJson.tasks,
+          })
+      })
+      .catch((error) => {
+          console.error(error)
+      });
+  }
+
+// Obsługa przycisków
   buttonPressHandler(answer){
-    switch(answer){
-      case 'answer1':
-      case 'answer2':
-      case 'answer3':
-      case 'answer4':
+    if(this.state.iterator < 9){
+      if(answer === true){
+        this.setState({
+            score: this.state.score + 1,
+            iterator: this.state.iterator + 1,
+            timer: 10
+        })
+      }else{
+        this.setState({
+            timer: 10,
+            iterator: this.state.iterator + 1
+        })
+      }
+    }else{
 
-        if(this.state.iterator < 9){
+      clearInterval(interval)
 
-          if(answer === questions[this.state.iterator].correctAnswer){
-            this.setState({
-                points: this.state.points + 1,
-                timer: 10,
-                iterator: this.state.iterator + 1,
-            })
-            console.log(this.state.points + "   " + questions[this.state.iterator].correctAnswer)
-
-          }else{
-            this.setState({
-                timer: 10,
-                iterator: this.state.iterator + 1,
-            })
-            console.log(this.state.points + "    " + questions[this.state.iterator].correctAnswer)
-          }
+      Navigation.push(this.props.componentId, {
+        component:{
+          name:"ResultScreen",
         }
-      break
+      })
     }
   }
 
   render() {
+    if(this.state.jsonFromServer[this.state.iterator].answers === undefined){
+      return null;
+    }
+
     return (
       <View style={styles.mainContainer}>
 
@@ -91,21 +105,18 @@ export default class TestScreen extends Component<Props> {
           <View style={styles.questionView}>
             <Text style={styles.timer}> Czas: {this.state.timer} sec</Text>
             <Text style={styles.questionNumber}> Pytanie {this.state.iterator+1}</Text>
-            <Text style={styles.question}> {questions[this.state.iterator].question} </Text>
+            <Text style={styles.question}> {this.state.jsonFromServer[this.state.iterator].question} </Text>
           </View>
 
           <View style={styles.bottomTestView}>
-            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler("answer1")}>
-              <Text style={styles.buttonText}> {questions[this.state.iterator].answer1} </Text>
+            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler(this.state.jsonFromServer[this.state.iterator].answers[0].isCorrect)}>
+              <Text style={styles.buttonText}> {this.state.jsonFromServer[this.state.iterator].answers[0].content} </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler("answer2")}>
-              <Text style={styles.buttonText}> {questions[this.state.iterator].answer2} </Text>
+            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler(this.state.jsonFromServer[this.state.iterator].answers[1].isCorrect)}>
+              <Text style={styles.buttonText}> {this.state.jsonFromServer[this.state.iterator].answers[1].content} </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler("answer3")}>
-              <Text style={styles.buttonText}> {questions[this.state.iterator].answer3} </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler("answer4")}>
-              <Text style={styles.buttonText}> {questions[this.state.iterator].answer4} </Text>
+            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler(this.state.jsonFromServer[this.state.iterator].answers[2].isCorrect)}>
+              <Text style={styles.buttonText}> {this.state.jsonFromServer[this.state.iterator].answers[2].content} </Text>
             </TouchableOpacity>
           </View>
 
@@ -148,7 +159,7 @@ const styles = StyleSheet.create({
   },
   question:{
     textAlign:'center',
-    fontSize:25,
+    fontSize:15,
     margin:2,
     fontFamily:'RobotoSlab-Bold'
 
