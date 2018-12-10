@@ -19,37 +19,20 @@ export default class TestScreen extends Component<Props> {
 
   constructor(){
     super()
+
     this.state = {
+      nick:"Adam Pidżątek",
       score: 0,
-      timer:10,
+      total: 20,
+      type:" ",
+      date: new Date().getFullYear()+"-"+eval(new Date().getMonth() + 1)+"-"+new Date().getDate(),
+
+      timer: 40,  // Spróbować ogarnąć duration z JSONa,żeby nie skipowało pierwszego screena
       iterator: 0,
       jsonFromServer:" ",
+      jsonFromServerGeneral:" ",
     }
-// Obsługa timera
-  if(this.state.iterator < 9){
-    interval = setInterval(() => {
-        if(this.state.timer > 0){
-          this.setState({
-              timer: this.state.timer - 1
-          })
-        }else{
-          this.setState({
-              timer: 10,
-              iterator: this.state.iterator + 1
-          })
-        }
-      },1000)
-   }else{
-        clearInterval(interval)
-
-        Navigation.push(this.props.componentId, {
-          component:{
-            name:"ResultScreen",
-          }
-        })
-    }
-
-  }
+ }
 
 // Pobranie Quizu
   componentDidMount(){
@@ -58,19 +41,67 @@ export default class TestScreen extends Component<Props> {
       .then((responseJson) => {
           this.setState({
               jsonFromServer: responseJson.tasks,
+              jsonFromServerGeneral: responseJson,
           })
       })
       .catch((error) => {
           console.error(error)
       });
+
+      interval = setInterval(() => {
+          if(this.state.timer > 0){
+            this.setState({
+                timer: this.state.timer - 1
+            })
+          }else{
+            this.setState({
+                timer: 10,
+                iterator: this.state.iterator + 1
+            })
+          }
+        },1000)
+  }
+// Jedna metodiczka załatwia sprawę z timerem <3
+  shouldComponentUpdate(nextProps,nextState){
+    if(nextState.iterator > 9){
+      clearInterval(interval)
+
+      this.state.type = this.state.jsonFromServerGeneral.tags[0]
+
+      alert("Nick: "+this.state.nick+"\nWynik: "+this.state.score+"\nSuma punktów: "+this.state.total+"\nTyp: "+this.state.type+"\nData: "+this.state.date)
+
+      Navigation.push(this.props.componentId, {
+        component:{
+          name:"ResultScreen",
+        }
+      })
+/*  Działa odblokować potem żeby nie śmiecić serwera resultami
+
+      fetch('https://pwsz-quiz-api.herokuapp.com/api/result', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nick: this.state.nick,
+          score: this.state.score,
+          total: this.state.total,
+          type: this.state.type,
+          date: this.state.date,
+        }),
+      });
+*/
+      return false
+    }
+    return true
   }
 
 // Obsługa przycisków
   buttonPressHandler(answer){
-    if(this.state.iterator < 9){
       if(answer === true){
         this.setState({
-            score: this.state.score + 1,
+            score: this.state.score + 2,
             iterator: this.state.iterator + 1,
             timer: 10
         })
@@ -80,16 +111,6 @@ export default class TestScreen extends Component<Props> {
             iterator: this.state.iterator + 1
         })
       }
-    }else{
-
-      clearInterval(interval)
-
-      Navigation.push(this.props.componentId, {
-        component:{
-          name:"ResultScreen",
-        }
-      })
-    }
   }
 
   render() {

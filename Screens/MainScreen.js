@@ -13,8 +13,16 @@ import {Navigation} from 'react-native-navigation'
 type Props = {};
 let string = "Lorem slipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 let tags = ["#Tag1","#Tag2"];
+let goToScreenNames = ["TestScreen","TestScreen2","TestScreen3","TestScreen4"];
 
 export default class MainScreen extends Component<Props> {
+
+  constructor(){
+    super()
+    this.state = {
+      jsonFromServer:" ",
+    }
+  }
 
   goToScreen(screenName){
     Navigation.push(this.props.componentId, {
@@ -24,51 +32,64 @@ export default class MainScreen extends Component<Props> {
     })
   }
 
+  componentDidMount(){
+    fetch('https://pwsz-quiz-api.herokuapp.com/api/tests')
+      .then((response) => response.json())
+      .then((responseJson) => {
+          this.setState({
+              jsonFromServer: responseJson,
+          })
+      })
+      .catch((error) => {
+          console.error(error)
+      });
+  }
+
+
+  renderQuizViews(){
+    let view = []
+    for(let i = 0; i<this.state.jsonFromServer.length;i++){
+
+      let tags = []
+      for(let j = 0; j<this.state.jsonFromServer[i].tags.length;j++){
+          tags.push("#"+this.state.jsonFromServer[i].tags[j]+" ")
+      }
+
+      view.push(
+        <View style={styles.textContainer}>
+          <TouchableOpacity style={styles.testButton} onPress={() => this.goToScreen(goToScreenNames[i])}>
+            <Text style={styles.textHeader} >{this.state.jsonFromServer[i].name}</Text>
+            <Text style={styles.textTags} >{tags}</Text>
+            <Text style={styles.textDescription} >{this.state.jsonFromServer[i].description} </Text>
+            <Text style={styles.textDescription} >{"Poziom trudności: "+this.state.jsonFromServer[i].level} </Text>
+            <Text style={styles.textDescription} >{"Ilośc pytań: "+this.state.jsonFromServer[i].numberOfTasks} </Text>
+          </TouchableOpacity>
+        </View>)
+    }
+
+    return view;
+  }
+
   render() {
+
+    if(this.state.jsonFromServer[0].tags === undefined){
+      return null;
+    }
+
     return (
       <View style={styles.mainContainer}>
         <ScrollView vertical={true} style={styles.scrollContainer}>
 
           <View style={styles.headerContainer}>
-            <Text style={styles.textHeader} >Main Menu</Text>
+            <Text style={styles.textHeader} >Menu główne</Text>
           </View>
 
-          <View style={styles.textContainer}>
-            <TouchableOpacity style={styles.testButton} onPress={() => this.goToScreen("TestScreen")}>
-              <Text style={styles.textHeader} >Title test #1 </Text>
-              <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
-              <Text style={styles.textDescription} >{string} </Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.textContainer}>
-            <TouchableOpacity style={styles.testButton} onPress={() => this.goToScreen("TestScreen")}>
-              <Text style={styles.textHeader} >Title test #2 </Text>
-              <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
-              <Text style={styles.textDescription} >{string} </Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.textContainer}>
-            <TouchableOpacity style={styles.testButton} onPress={() => this.goToScreen("TestScreen")}>
-              <Text style={styles.textHeader} >Title test #3 </Text>
-              <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
-              <Text style={styles.textDescription} >{string} </Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.textContainer}>
-            <TouchableOpacity style={styles.testButton} onPress={() => this.goToScreen("TestScreen")}>
-              <Text style={styles.textHeader} >Title test #4 </Text>
-              <Text style={styles.textTags} >{tags[0]+" "+tags[1]}</Text>
-              <Text style={styles.textDescription} >{string} </Text>
-            </TouchableOpacity>
-          </View>
+          {this.renderQuizViews()}
 
           <View style={styles.resultContainer}>
             <Text style={styles.textHeader} >Zobacz ranking!</Text>
             <TouchableOpacity style={styles.resultButton} onPress={() => this.goToScreen("ResultScreen")}>
-              <Text style={styles.textDescription} >Check!</Text>
+              <Text style={styles.textDescription} >Sprawdź!</Text>
             </TouchableOpacity>
           </View>
 
@@ -114,19 +135,19 @@ const styles = StyleSheet.create({
   },
   textHeader:{
     padding:10,
-    fontSize:25,
+    fontSize:22,
     fontFamily: "Pacifico-Regular"
   },
   textTags:{
-    padding:10,
+    paddingLeft:10,
     fontSize:20,
     color:'blue',
     fontFamily: "Pacifico-Regular"
   },
   textDescription:{
     padding:10,
-    fontSize:20,
-    fontFamily: "GamjaFlower-Regular"
+    fontSize:17,
+    fontStyle:'italic'
   },
 
   //Result Container
