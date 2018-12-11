@@ -23,7 +23,7 @@ export default class TestScreen extends Component<Props> {
     this.state = {
       nick:"Adam Pidżątek",
       score: 0,
-      total: 20,
+      total: 0,
       type:" ",
       date: new Date().getFullYear()+"-"+eval(new Date().getMonth() + 1)+"-"+new Date().getDate(),
 
@@ -55,7 +55,7 @@ export default class TestScreen extends Component<Props> {
             })
           }else{
             this.setState({
-                timer: 10,
+                timer: this.state.jsonFromServer[this.state.iterator].duration,
                 iterator: this.state.iterator + 1
             })
           }
@@ -63,10 +63,11 @@ export default class TestScreen extends Component<Props> {
   }
 // Jedna metodiczka załatwia sprawę z timerem <3
   shouldComponentUpdate(nextProps,nextState){
-    if(nextState.iterator > 9){
+    if(nextState.iterator > this.state.jsonFromServer.length -1 ){
       clearInterval(interval)
 
       this.state.type = this.state.jsonFromServerGeneral.tags[0]
+      this.state.total = eval(this.state.jsonFromServer.length * 2)
 
       alert("Nick: "+this.state.nick+"\nWynik: "+this.state.score+"\nSuma punktów: "+this.state.total+"\nTyp: "+this.state.type+"\nData: "+this.state.date)
 
@@ -103,14 +104,28 @@ export default class TestScreen extends Component<Props> {
         this.setState({
             score: this.state.score + 2,
             iterator: this.state.iterator + 1,
-            timer: 10
+            timer: this.state.jsonFromServer[this.state.iterator].duration
         })
       }else{
         this.setState({
-            timer: 10,
+            timer: this.state.jsonFromServer[this.state.iterator].duration,
             iterator: this.state.iterator + 1
         })
       }
+  }
+
+  renderAnswerView(){
+    let btn = []
+
+    for(let i = 0;i < 3;i++){
+      btn.push(
+          <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler(this.state.jsonFromServer[this.state.iterator].answers[i].isCorrect)}>
+            <Text style={styles.buttonText}>{this.state.jsonFromServer[this.state.iterator].answers[i].content}</Text>
+          </TouchableOpacity>
+        )
+    }
+
+    return btn;
   }
 
   render() {
@@ -130,15 +145,7 @@ export default class TestScreen extends Component<Props> {
           </View>
 
           <View style={styles.bottomTestView}>
-            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler(this.state.jsonFromServer[this.state.iterator].answers[0].isCorrect)}>
-              <Text style={styles.buttonText}> {this.state.jsonFromServer[this.state.iterator].answers[0].content} </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler(this.state.jsonFromServer[this.state.iterator].answers[1].isCorrect)}>
-              <Text style={styles.buttonText}> {this.state.jsonFromServer[this.state.iterator].answers[1].content} </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.anwerButton} onPress={()=>this.buttonPressHandler(this.state.jsonFromServer[this.state.iterator].answers[2].isCorrect)}>
-              <Text style={styles.buttonText}> {this.state.jsonFromServer[this.state.iterator].answers[2].content} </Text>
-            </TouchableOpacity>
+            {this.renderAnswerView()}
           </View>
 
         </View>
