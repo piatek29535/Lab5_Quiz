@@ -48,7 +48,7 @@ export default class MainScreen extends Component<Props> {
 
   renderQuizViews(){
     let view = []
-    for(let i = 0; i<this.state.jsonFromServer.length;i++){
+    for(let i = 0; i<4;i++){
 
       let tags = []
       for(let j = 0; j<this.state.jsonFromServer[i].tags.length;j++){

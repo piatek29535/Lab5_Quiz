@@ -31,6 +31,8 @@ export default class TestScreen extends Component<Props> {
       iterator: 0,
       jsonFromServer:" ",
       jsonFromServerGeneral:" ",
+      jsonFromServerTestList:" ",
+      testIds: []
     }
  }
 
