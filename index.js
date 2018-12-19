@@ -8,6 +8,7 @@ import TestScreen2 from './Screens/TestScreen2'
 import TestScreen3 from './Screens/TestScreen3'
 import TestScreen4 from './Screens/TestScreen4'
 import Drawer from './Screens/Drawer'
+import SplashScreen from './Screens/SplashScreen'
 
 //Screeny do apki Quiz
 Navigation.registerComponent(`MainScreen`, () => App);
@@ -17,6 +18,8 @@ Navigation.registerComponent(`TestScreen3`, () => TestScreen3);
 Navigation.registerComponent(`TestScreen4`, () => TestScreen4);
 Navigation.registerComponent(`ResultScreen`, () => ResultScreen); // Tutej tak jakby mówimy że "oki, bedziemy teraz se brali ten pliczek jako nowe okno"
 Navigation.registerComponent(`Drawer`, () => Drawer);
+Navigation.registerComponent(`SplashScreen`, () => SplashScreen);
+
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setDefaultOptions({
@@ -50,7 +53,7 @@ Navigation.events().registerAppLaunchedListener(() => {
               children:[
                 {
                   component:{
-                    name: 'MainScreen',
+                    name: 'SplashScreen',
                   },
                 },
               ],
